@@ -7,9 +7,8 @@ const sevenOfSpades = new Card({ suit: "Spades", number: 7 })
 const eightOfSpades = new Card({ suit: "Spades", number: 8 })
 
 const handOne = new Hand({ cardHand: [fiveOfSpades, sixOfSpades, sevenOfSpades, eightOfSpades]})
-const returnValue = {playerHand: handOne}
+const returnValue = {handOne}
 
 exports.list = function(req, res) {
-  console.log(handOne.cardHand)
   res.send(returnValue);
 }
