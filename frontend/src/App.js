@@ -1,29 +1,41 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./styles/App.css";
 import axios from "axios";
 
-axios.get("http://localhost:3000/").then((response) => {
-  // alert(response.stringify());
-  alert(JSON.stringify(response.data));
-});
+
+function roundGet(){
+  axios.get("http://localhost:3001/catalog/round").then((response) => {
+    // alert(response.stringify());
+    alert(JSON.stringify(response))
+  });
+}
+
+function playCard() {
+  axios.get("http://localhost:3001/catalog/round/play").then((response) => {
+    // alert(response.stringify());
+    alert(JSON.stringify(response))
+  });
+}
+
+function seeHand() {
+  axios.get("http://localhost:3001/catalog/hand").then((response) => {
+    const cardsReturned = response.data.playerHand.cardHand;
+    cardsReturned.forEach(card => {
+      console.log(card.number)
+      console.log(card.suit)
+    })
+    alert(cardsReturned)
+  });
+}
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-        hi
+        Daidi
+        <button onClick={roundGet}>Test-Backend</button>
+        <button onClick={playCard}>Play Card</button>
+        <button onClick={seeHand}>My Hand</button>
       </header>
     </div>
   );

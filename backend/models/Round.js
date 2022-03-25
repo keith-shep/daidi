@@ -23,6 +23,11 @@ const RoundSchema = new Schema({
     ref: 'User',
     default: null,
   },
+  currentPlay: {
+    type: Schema.Types.ObjectId,
+    ref: 'Card',
+    default: null,
+  }
 });
 
 // This creates our model from the above schema, using mongoose's model method
