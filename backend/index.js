@@ -1,7 +1,6 @@
 const Card = require("./models/Card");
 const User = require("./models/User");
 const catalog = require("./routes/catalog");
-
 const express = require("express");
 const app = express();
 const cors = require("cors");

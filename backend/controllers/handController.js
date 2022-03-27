@@ -12,3 +12,8 @@ const returnValue = {handOne}
 exports.list = function(req, res) {
   res.send(returnValue);
 }
+
+exports.pop = function(req, res) {
+  // handOne.cardHand = req.cardHand
+  console.log('hello from pop in backend', req)
+}
