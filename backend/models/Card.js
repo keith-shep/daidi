@@ -1,22 +1,22 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const CardSchema = new Schema({
   suit: {
     type: String,
     required: true,
-    enum: ["Clubs", "Hearts", "Spades", "Diamonds"],
+    enum: ['Clubs', 'Hearts', 'Spades', 'Diamonds']
   },
   number: {
     type: Number,
     min: 1,
     max: 13,
-    required: false,
-  },
-});
+    required: false
+  }
+})
 
 // This creates our model from the above schema, using mongoose's model method
-const Card = mongoose.model("Card", CardSchema);
+const Card = mongoose.model('Card', CardSchema)
 
 // Export the Article model
-module.exports = Card;
+module.exports = Card

@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const RoundSchema = new Schema({
   won: {
@@ -16,22 +16,22 @@ const RoundSchema = new Schema({
   typeCombo: {
     type: String,
     required: true,
-    enum: ["Single", "Pair", "Five-Card"],
+    enum: ['Single', 'Pair', 'Five-Card']
   },
   winner: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    default: null,
+    default: null
   },
   currentPlay: {
     type: Schema.Types.ObjectId,
     ref: 'Card',
-    default: null,
+    default: null
   }
-});
+})
 
 // This creates our model from the above schema, using mongoose's model method
-const Round = mongoose.model("Round", RoundSchema);
+const Round = mongoose.model('Round', RoundSchema)
 
 // Export the Article model
-module.exports = Round;
+module.exports = Round
