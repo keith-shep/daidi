@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./styles/App.css";
 import axios from "axios";
 
