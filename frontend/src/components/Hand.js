@@ -10,12 +10,19 @@ class Hand extends React.Component {
   }
   // This function isnt working because its not an array
   popCard() {
-    this.setState(prevState => ({
-      cardsInHand: prevState.cardsInHand.pop()
-    }))
+    this.state.cardsInHand.pop()
+    this.setState({ cardsInHand: this.state.cardsInHand })
+    console.log("hello from popCard after", this.state.cardsInHand)
+    axios.put('https://localhost:3001/catalog/hand/pop', {
+      cardHand: this.state.cardsInHand
+    })
+      .then(response => {
+        console.log(response);
+    })
   }
   componentDidMount() {
     axios.get("http://localhost:3001/catalog/hand").then((response) => {
+      console.log(response)
       const cardsReturned = response.data.handOne.cardHand;
       this.setState({cardsInHand: cardsReturned})
       console.log(Array.isArray(this.state.cardsInHand))
@@ -25,9 +32,8 @@ class Hand extends React.Component {
     return (
       <div>
         <button onClick={this.popCard}>
-          Play Card
+          Play a Card
         </button>
-        {/* <h1>{this.state.cardsInHand[0].suit}</h1> */}
         {this.state.cardsInHand.map(card =>
           <li>{card.number} + {card.suit}</li>
         )}
